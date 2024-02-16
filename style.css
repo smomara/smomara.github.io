@@ -26,6 +26,7 @@ body {
 
 .profile-data {
     flex: 1;
+    margin-right: 1rem;
 }
 
 .project-description {
