@@ -7,8 +7,8 @@ title: Sean O'Mara
 
 omarams [at] cua [dot] edu
 
-I'm a Student Researcher, Software Engineer Intern, Computer Science Student, and Student-Athlete constantly learning and building.
+I'm a computer science student, software engineer intern, and student-athlete. I am constantly learning and building.
 
-This site is where I maintain lists of my favorite books, essays, and other resources. It helps me keep track of them, but maybe you'll find something useful here too.
+This site contains a list of books, essays, and resources I find useful or interesting and want to keep track of. You might something helpful here too.
 
 Feel free to have a look around.
