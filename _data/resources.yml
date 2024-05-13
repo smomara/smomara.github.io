@@ -1,0 +1,11 @@
+- title: Teach Yourself CS
+  link: https://teachyourselfcs.com
+  description: The best curriculum for computer science self-study
+
+- title: How to Optimize a CUDA Matmul Kernel for cuBLAS-like Performance - a Worklog
+  link: https://siboehm.com/articles/22/CUDA-MMM
+  description: An Anthropic performance engineer optimizes a GEMM in CUDA
+
+- title: CUDA C++ Programming Guide
+  link: https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html
+  description: The programming guide to the CUDA model and interface

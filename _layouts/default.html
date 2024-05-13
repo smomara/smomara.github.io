@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">body{font-family:monospace;}</style>
+    <title>{{ page.title }}</title>
+
+    <link rel="icon" href="{{ '/assets/favicon.ico' | relative_url }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+    <header>
+        <a href="{{ '/' | relative_url }}">Sean O'Mara</a>
+        <div style="float: right;">Personal Site</div>
+        <p><nav>
+            <a href="{{ '/' | relative_url }}"><b>Start</b></a>
+            <a href="{{ '/pages/' | relative_url }}"><b>Pages</b></a>
+        </nav></p>
+    </header>
+
+    <main>
+        <article>
+            {{ content }}
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 <a href="{{ '/' | relative_url }}"><b>Sean O'Mara</b></a>.
+            <a href="https://github.com/smomara"><b>Github</b></a>.
+            <a href="https://twitter.com/mseanomara"><b>Twitter</b></a>.
+            <a href="https://linkedin.com/in/omarams"><b>LinkedIn</b></a>.
+            </p>
+    </footer>
+</body>
+</html>
