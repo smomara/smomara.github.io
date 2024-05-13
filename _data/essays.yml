@@ -22,3 +22,8 @@
   author: Andrej Karpathy
   link: https://karpathy.medium.com/software-2-0-a64152b37c35
   quote: Software 1.0 is code we write. Software 2.0 is code written by the optimization based on an evaluation criterion. It is likely that any setting where the program is not obvious but one can repeatedly evaluate the performance of it will be subject to this transition, because the optimization can find much better code than what a human can write.
+
+- title: What I Wish Someone Had Told Me
+  author: Sam Altman
+  link: https://blog.samaltman.com/what-i-wish-someone-had-told-me
+  quote: Optimism, obsession, self-belief, raw horsepower and personal connections are how things get started.
