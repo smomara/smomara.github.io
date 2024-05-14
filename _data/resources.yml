@@ -1,11 +1,11 @@
 - title: Teach Yourself CS
   link: https://teachyourselfcs.com
-  description: The best curriculum for computer science self-study
+  description: A comprehensive self-study curriculum for computer science. It covers all the essential topics and offers the best resources that can be accessed for free.
 
 - title: How to Optimize a CUDA Matmul Kernel for cuBLAS-like Performance - a Worklog
   link: https://siboehm.com/articles/22/CUDA-MMM
-  description: An Anthropic performance engineer optimizes a GEMM in CUDA
+  description: A detailed worklog by an Anthropic performance engineer on optimizing a General Matrix Mulitply (GEMM) function in CUDA. Demonstrates high-level techniques for performance gains.
 
 - title: CUDA C++ Programming Guide
   link: https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html
-  description: The programming guide to the CUDA model and interface
+  description: The definitive guide to programming with CUDA, teaching you the model and interface, and how to harness the power of GPUs.

@@ -1,29 +1,24 @@
 - title: Structure and Interpretation of Computer Programs
   authors: Abelson, Sussman, and Sussman
   link: https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/index.html
-  description: The best programming book and a seminal work in computer science
+  description: A seminal work that teaches you how to program and think about computer science in a deep way.
 
 - title: Computer Systems - A Programmer's Perspective
   authors: Bryand and O'Hallaron
   link: https://csapp.cs.cmu.edu
-  description: The best computer systems book
+  description: A computer systems textbook written teaches programmers knowledge of a system and how to use it to write better programs.
 
 - title: Deep Learning
   authors: Goodfellow, Bengio, and Courville
   link: https://www.deeplearningbook.org/
-  description: The best deep learning book
+  description: An introduction to deep learning written by experts of the field. Covers mathematical and conceptual background and deep learning techniques used in industry.
 
 - title: Zero to One - Notes on Startups, or How to Build the Future
   authors: Peter Thiel
   link: https://www.amazon.com/Zero-One-Notes-Startups-Future/dp/0804139296
-  description: The best book about startups and innovation
-
-- title: Accelerated C++
-  authors: Koenig and Moo
-  link: https://www.amazon.com/Accelerated-C-Practical-Programming-Example/dp/020170353X
-  description: The best and most effective book for learning C++
+  description: Introduces a new way to think about business and ambition. Challenges you to be a contrarian to find opportunities to build the future.
 
 - title: Programming Massively Parallel Processors - A Hands-on Approach
   authors: Kirk and Hwu
   link: https://www.amazon.com/Programming-Massively-Parallel-Processors-Hands/dp/0124159923
-  description: The best book to learn how GPUs work and how to program them
+  description: An introduction to GPUs that teaches you how they work and how to program them for performance using CUDA. All other CUDA books are downstream this one.
