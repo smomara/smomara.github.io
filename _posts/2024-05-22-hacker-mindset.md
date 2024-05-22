@@ -12,5 +12,3 @@ The world of tech is changing fast. With the rise of AI and more powerful tools,
 Companies increasingly want the best of the best - the passionate, self-motivated people who live and breathe their craft. Skill and dedication are what matter now, not credentials. Those motivated solely by money will be left in the dust.
 
 But if you love the craft - if you have that burning desire to master your tools, solve deep problems, and build the future - then you'll find your passion is worth far more than a mere paycheck. Nurture that hacker spirit, and you can't go wrong.
-
-https://paulgraham.com/gh.html
