@@ -1,4 +1,13 @@
+# _config.yml
 title: Sean O'Mara
-email: mseanomara@gmail.com
-description: Personal Site
-url: "smomara.github.io"
+author: Sean O'Mara
+description: Personal Site of Sean O'Mara
+
+# Social links
+github_username: smomara
+twitter_username: mseanomara
+linkedin_username: omarams
+
+# Build settings
+markdown: kramdown
+permalink: pretty
