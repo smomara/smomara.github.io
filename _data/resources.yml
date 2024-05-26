@@ -9,3 +9,7 @@
 - title: CUDA C++ Programming Guide
   link: https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html
   description: The definitive guide to programming with CUDA, teaching you the model and interface, and how to harness the power of GPUs.
+
+- title: The Rust Book
+  link: https://rust-book.cs.brown.edu/
+  description: The definitive guide to the Rust programming language.
