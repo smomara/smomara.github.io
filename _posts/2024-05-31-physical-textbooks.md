@@ -3,7 +3,7 @@ layout: post
 title: "Physical Textbooks in the Digital Age"
 ---
 
-We live in a world of bite-sized digital content, where learning is often packages as entertainment. You can find a video, blog post, or audiobook promising to teach you something in a matter of minutes. But as convenient as this may seem, I believe it's a trap.
+We live in a world of bite-sized digital content, where learning is often packaged as entertainment. You can find a video, blog post, or audiobook promising to teach you something in a matter of minutes. But as convenient as this may seem, I believe it's a trap.
 
 Real learning isn't about being entertained. It's about engaging deeply with a subject, wrestling with concepts, and putting in the mental effort to truly understand. And for me, there's no better way to do this than with a good old-fashioned physical textbook.
 

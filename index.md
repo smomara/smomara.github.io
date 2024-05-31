@@ -5,7 +5,7 @@ title: Sean O'Mara
 
 # Hi, I'm Sean
 
-omarams [at] cua [dot] edu
+mseanomara [at] gmail [dot] com
 
 I'm a computer science student, software engineer intern, and student-athlete. I am constantly learning and building.
 
