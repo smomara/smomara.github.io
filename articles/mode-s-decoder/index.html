@@ -7,6 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Radio Waves to Flight Data: Building a Mode S Decoder | Sean O'Mara</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tufte-css/1.8.0/tufte.min.css">
+    <style>
+      .theme-aware-image {
+        content: var(--light-img);
+      }
+      @media (prefers-color-scheme: dark) {
+        .theme-aware-image {
+          content: var(--dark-img);
+        }
+      }
+    </style>
   </head>
   <body>
     <article>
@@ -39,14 +49,13 @@
       <p>Before we dive into code, let's look at what we're actually trying to decode. Mode S messages come in two sizes: short (56 bits) and long (112 bits). Each one starts with a distinctive preamble pattern<label for="sn-preamble" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-preamble" class="margin-toggle"/><span class="sidenote">This preamble is crucial for our decoder. It's how we find the start of messages in the endless stream of radio noise. More on this when we get to the demodulation code.</span> followed by the actual data.</p>
       <p>The first 5 bits of the data, the Downlink Format (DF), tell us what kind of message we're dealing with. Think of it like a version number that tells us how to interpret everything that follows<label for="sn-df" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-df" class="margin-toggle"/><span class="sidenote">Most of the time we'll be looking for DF17, which marks ADS-B messages, but our decoder needs to handle all types to be useful.</span>. The format of the rest of the message depends entirely on these 5 bits.</p>
       <p>For example, DF17 messages (the ADS-B ones we care about most) break down like this:</p>
-      <pre class="fullwidth">
-+----------------+-------------------+------------------------+-----------------+
-| DF (5 bits)    | Aircraft ID (3B)  | Data Block (7B)        | CRC (3B)        |
-+----------------+-------------------+------------------------+-----------------+
-| Always 17      | Who is sending    | Position/Speed/etc     | Error checking  |
-+----------------+-------------------+------------------------+-----------------+
-  </pre>
-      <p>That middle "Data Block" section gets even more interesting<label for="sn-data" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-data" class="margin-toggle"/><span class="sidenote">Aircraft position data being particularly interesting. They use a special encoding scheme called CPR that manages to pack precise lat/long coordinates into just a few bits by alternating between "even" and "odd" messages. We'll talk more about that later.</span>. The first 5 bits tell us what kind of data follows (position, velocity, aircraft ID, etc.), and then we have 51 bits of actual payload data. The last 24 bits are used for error detection, which turns out to be crucial when you're trying to decode radio signals from planes dozens of miles away.</p>
+      <figure>
+        <img class="theme-aware-image" 
+             style="--light-img: url('/resources/mode-s-message-light.svg'); 
+                    --dark-img: url('/resources/mode-s-message-dark.svg')"
+             alt="Mode S Message Structure">
+      </figure>
+      <p>That middle "ME" section gets even more interesting<label for="sn-data" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-data" class="margin-toggle"/><span class="sidenote">Aircraft position data being particularly interesting. They use a special encoding scheme called CPR that manages to pack precise lat/long coordinates into just a few bits by alternating between "even" and "odd" messages. We'll talk more about that later.</span>. The first 5 bits tell us what kind of data follows (position, velocity, aircraft ID, etc.), and then we have 51 bits of actual payload data. The last 24 bits are used for error detection, which turns out to be crucial when you're trying to decode radio signals from planes dozens of miles away.</p>
       <section>
         <h2>Building the Decoder: A Three-Stage Pipeline</h2>
         <p>Turning radio waves into data is like playing a game of telephone, but whether or not you keep the message intact has real consequences<label for="sn-pipeline" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-pipeline" class="margin-toggle"/><span class="sidenote">This is why each stage has its own error checking and recovery mechanisms.</span>. Our decoder breaks this down into three stages: demodulation (turning radio waves into bits), verification (making sure those bits make sense), and decoding (turning valid bits into actual flight data).</p>
@@ -88,6 +97,12 @@ detectPreamble mags pos
 
          in patternCheck && spikeCheck && spaceCheck</code></pre>
         <p>That code is kind of ugly, but it's just searching for a specific up-down-up-down pattern in our signal<label for="sn-pattern" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-pattern" class="margin-toggle"/><span class="sidenote">The preamble consists of four precise pulses, each 0.5 microseconds long. With our 2MHz sampling rate (one sample every 0.5 μs), we're looking for strong signals at 0, 2, 7, and 9 samples into our data, with relative quiet between them. This pattern is nearly impossible to confuse with noise or other signals.</span>. Think of it like finding the start of a sentence. This pattern tells us "hey, a Mode S message is about to begin!"</p>
+        <figure>
+          <img class="theme-aware-image"
+               style="--light-img: url('/resources/preamble-light.svg');
+                      --dark-img: url('/resources/preamble-dark.svg')"
+               alt="Preamble Pattern">
+        </figure>
         <p>Once we find a preamble, we start the actual work of decoding bits. The first chunk tells us if we're dealing with a short message (56 bits) or long message (112 bits):</p>
         <pre><code>determineMessageLength :: [Bool] -> Maybe MessageLength
 determineMessageLength bits
