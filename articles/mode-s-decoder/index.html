@@ -51,8 +51,8 @@
       <p>For example, DF17 messages (the ADS-B ones we care about most) break down like this:</p>
       <figure>
         <img class="theme-aware-image" 
-             style="--light-img: url('/resources/mode-s-message-light.svg'); 
-                    --dark-img: url('/resources/mode-s-message-dark.svg')"
+             style="--light-img: url('/resources/mode-s-message-light.png'); 
+                    --dark-img: url('/resources/mode-s-message-dark.png')"
              alt="Mode S Message Structure">
       </figure>
       <p>That middle "ME" section gets even more interesting<label for="sn-data" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-data" class="margin-toggle"/><span class="sidenote">Aircraft position data being particularly interesting. They use a special encoding scheme called CPR that manages to pack precise lat/long coordinates into just a few bits by alternating between "even" and "odd" messages. We'll talk more about that later.</span>. The first 5 bits tell us what kind of data follows (position, velocity, aircraft ID, etc.), and then we have 51 bits of actual payload data. The last 24 bits are used for error detection, which turns out to be crucial when you're trying to decode radio signals from planes dozens of miles away.</p>
@@ -99,8 +99,8 @@ detectPreamble mags pos
         <p>That code is kind of ugly, but it's just searching for a specific up-down-up-down pattern in our signal<label for="sn-pattern" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-pattern" class="margin-toggle"/><span class="sidenote">The preamble consists of four precise pulses, each 0.5 microseconds long. With our 2MHz sampling rate (one sample every 0.5 μs), we're looking for strong signals at 0, 2, 7, and 9 samples into our data, with relative quiet between them. This pattern is nearly impossible to confuse with noise or other signals.</span>. Think of it like finding the start of a sentence. This pattern tells us "hey, a Mode S message is about to begin!"</p>
         <figure>
           <img class="theme-aware-image"
-               style="--light-img: url('/resources/preamble-light.svg');
-                      --dark-img: url('/resources/preamble-dark.svg')"
+               style="--light-img: url('/resources/preamble-light.png');
+                      --dark-img: url('/resources/preamble-dark.png')"
                alt="Preamble Pattern">
         </figure>
         <p>Once we find a preamble, we start the actual work of decoding bits. The first chunk tells us if we're dealing with a short message (56 bits) or long message (112 bits):</p>
