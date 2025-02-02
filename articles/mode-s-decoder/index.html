@@ -90,11 +90,11 @@ detectPreamble mags pos
     | pos + 14 >= V.length mags = False
     | otherwise = 
         let 
-            (!mag0, !mag1, !mag2, !mag3) = (mags V.! pos, mags V.! (pos+1), mags V.! (pos+2), mags V.! (pos+3))
-            (!mag4, !mag5, !mag6, !mag7) = (mags V.! (pos+4), mags V.! (pos+5), mags V.! (pos+6), mags V.! (pos+7))
-            (!mag8, !mag9) = (mags V.! (pos+8), mags V.! (pos+9))
+            (mag0, mag1, mag2, mag3) = (mags V.! pos, mags V.! (pos+1), mags V.! (pos+2), mags V.! (pos+3))
+            (mag4, mag5, mag6, mag7) = (mags V.! (pos+4), mags V.! (pos+5), mags V.! (pos+6), mags V.! (pos+7))
+            (mag8, mag9) = (mags V.! (pos+8), mags V.! (pos+9))
 
-            !threshold = (fromIntegral (mag0 + mag2 + mag7 + mag9) :: Int) `div` 6
+            threshold = (fromIntegral (mag0 + mag2 + mag7 + mag9) :: Int) `div` 6
 
             patternCheck = mag0 > mag1 && mag1 < mag2 && mag2 > mag3 && 
                           mag3 < mag0 && mag4 < mag0 && mag5 < mag0 &&
